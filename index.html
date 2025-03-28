@@ -17,7 +17,7 @@
         <input type="number" name="mensalidade" id="mensalidade" placeholder="Digite sua Mensalidade" class="mensalidade" required />
 
         <label for="tempo">Tempo:</label>
-        <select name="tempo" id="tempo" required>
+        <select name="tempo" id="tempo" class="tempo">
           <option value="" disabled selected>Selecione o tempo</option>
           <option value="1">1 ano</option>
           <option value="2">2 anos</option>
@@ -25,8 +25,8 @@
         </select>
 
         <div class="container-button">
-          <button type="button">Simular</button>
+          <button type="button" onclick="calcularJuros()">Simular</button>
         </div>
       </form>
     </div>
-    <script src="script.js
+    <script src="app.js"></script>
