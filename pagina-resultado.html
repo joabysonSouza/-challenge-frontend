@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Pagina-resultado.css">
+    <link rel="stylesheet" href="css/pagina-resultado.css">
     <title>Document</title>
 </head>
 <body>
       <h1>Simulador</h1>
 
-      <p>
-        Olá nome juntando mensalidade todo mês você tera R$ resultado ao mês 
+      <p >
+        Olá <span class="nome">nome</span> juntando R$ <span class="mensalidade">mensalidade</span> todo mês você tera R$ <span class="resultado">resultado</span> 
+        ao final de <span class="tempo">tempo</span>
       </p>
-      <button onclick="limpar()">simular novamente</button>
+
+      <p class="resultado"> oi </p>
+      <button  onclick="voltar()">simular novamente</button>
 </body>
 <script src="js/pagina-resultado.js"></script>
 </html>
