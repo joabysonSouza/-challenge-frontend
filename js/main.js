@@ -22,7 +22,7 @@ selectTempo.addEventListener("change", (event) => {
 
 async function calcularJuros() {
   const expr = `${mensalidade} * (((1 + ${taxadeJuros}) ^ ${tempo} - 1) / ${taxadeJuros})`;
-  const resultado = mensalidade * (((1 + taxadeJuros) ^ tempo - 1) / taxadeJuros).toFixed(2);
+  const resultado = mensalidade * (((1 + taxadeJuros) ^ tempo - 1) / taxadeJuros);
   try {
  
     const resposta = await fetch("http://api.mathjs.org/v4/", {
@@ -31,11 +31,18 @@ async function calcularJuros() {
       body: JSON.stringify({ expr }),
     });
 
-     localStorage.setItem("usuario",nome)
-     localStorage.setItem("mensalidade",mensalidade)
-     localStorage.setItem("tempo",tempo)
-     localStorage.setItem("Taxa de juros",taxadeJuros)
-     localStorage.setItem("resultado", resultado)
+    
+
+    if(!nome || mensalidade <= 0 || tempo <=0){
+     return alert("Insira dados validos")
+    }
+    localStorage.setItem("usuario",nome)
+    localStorage.setItem("mensalidade",mensalidade.toLocaleString('pt-br',{style: 'currency', currency:'BRL'}))
+    localStorage.setItem("tempo",tempo)
+    localStorage.setItem("Taxa de juros",taxadeJuros)
+    localStorage.setItem("resultado", resultado.toLocaleString('pt-br',{style: 'currency', 
+      currency: 'BRL'}))
+     
      window.location.href = "http://127.0.0.1:5500/pagina-resultado.html"
 
   } catch (error) {
